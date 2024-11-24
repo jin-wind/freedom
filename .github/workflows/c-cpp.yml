@@ -1,0 +1,30 @@
+
+name: build-freedom
+on:
+  push:
+    paths:
+    - 'freedom/**'
+    - 'include/**'
+    - 'vendor/**'
+  workflow_dispatch:
+    paths:
+      - 'freedom/**'
+      - 'include/**'
+      - 'vendor/**'
+
+jobs:
+  windows-msvc:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: build
+        shell: cmd
+        run: |
+          nobuild.exe
+      - name: freedom
+        uses: actions/upload-artifact@v4
+        with:
+          name: freedom
+          path: |
+            freedom_injector.exe
+            freedom.dll
