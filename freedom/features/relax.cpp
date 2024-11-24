@@ -35,9 +35,9 @@ void calc_od_timing()
             {
                 // NOTE(Ciremun): move od window to the left
                 if (rand_range_i(0, 1) >= 1)
-                    jumping_window_offset = rand_range_f(.1337f, od_window - od_window_left_offset);
+                    jumping_window_offset = rand_range_f(.1000f, od_window - od_window_left_offset);
                 else
-                    jumping_window_offset = -rand_range_f(.1337f, od_window_right_offset);
+                    jumping_window_offset = -rand_range_f(.1000f, od_window_right_offset);
                 hit_objects_passed = current_beatmap.hit_object_idx;
                 wait_hitojects_count = rand_range_i(wait_hitobjects_min, wait_hitobjects_max);
             }
